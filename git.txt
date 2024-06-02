@@ -1,0 +1,7 @@
+echo "# Elements-of-statistics" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/monochandan/Elements-of-statistics.git
+git push -u origin main

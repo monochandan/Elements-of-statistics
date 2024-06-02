@@ -1,0 +1,512 @@
+125/216
+(75+60+36)/(216)
+6/11
+8/9
+5/18
+11/36
+5/12
+115/400
+31/85
+9/12
+6/8+12/15+3/12
+(2*3*9+2*3*3+6*3*9+2*12*9)/(8*12*15)
+load("C:/Users/sanaa/Downloads/Pillar_01_QP_01_00_20151130014.RData")
+#1.1
+attach(RData)
+head(RData)
+njc<-table(Colour)
+which(njc==max(njc))
+pjc<-prop.table(njc)
+entropy<--sum(pjc*log(pjc))
+entropy
+mean(Price)
+n<-length(Price)
+emp.var<-1/n*sum((Price-mean(Price))^2)
+emp.var
+z<-median(Price)
+mld<-1/n*sum(abs((Price-z)^2))
+mld
+load("C:/Users/sanaa/Downloads/Pillar_01_QP_02_00_20171029002.RData")
+#1.2
+attach(RData)
+head(RData)
+x_o<-c(500,1000,1750,2500,3500,4500,7000)
+Income_binned<-cut(NetIncome,breaks = x_o,right = T)
+data<-data.frame(RData)
+data<-as.matrix(data)
+x_o<-c(500,1000,1750,2500,3500,4500,7000)
+Income_binned<-cut(NetIncome,breaks = x_o,right = T)
+hist(data,breaks = x_o,right = T)
+nj<-table(Income_binned)
+pj<-prop.table(nj)
+n<-length(x_o)
+n
+n<-length(Income_binned)
+n
+n<-length(x_o)
+n
+x_prime<-x_o[-n]+(x_o[-1]-x_o[-n])/2
+am<-sum(pj*x_prime)
+am
+var<-sum(pj*(x_prime-am)^2)
+var
+load("C:/Users/sanaa/Downloads/Pillar_01_QP_03_00_20151130018 (1).RData")
+#1.3
+attach(RData)
+head(RData)
+x_o<-c(40,50,62.5,75,87.5,100,130)
+weight_binned<-cut(Weight,breaks = x_o,right = T)
+nj<-table(weight_binned)
+pj<-prop.table(nj)
+x_prime<-x_o[-n]+(x_o[-1]-x_o[-n])/2
+n<-length(x_o)
+x_prime<-x_o[-n]+(x_o[-1]-x_o[-n])/2
+am<-sum(pj*x_prime)
+am
+var<-sum(pj*(x_prime-am)^2)
+var
+F_j<-cumsum(pj)
+j<- 2
+x_median <- x_o[j ] + ( x_o[j +1] - x_o[ j ]) *
+(0.25 - F_j[j -1]) /( F_j [j ] - F_j[j -1])
+x_median
+#1.5
+people<-c(41000,29000,41000,32000)
+mean(people)
+rate<-c(4.13,2.33,2.49,4.22,6.52,7.63)
+n<-length(rate)
+n/sum(1/rate)
+load("C:/Users/sanaa/Downloads/Pillar_01_QP_01_00_20151130014.RData")
+#1.1
+attach(RData)
+head(RData)
+njc<-table(Colour)
+which(njc==max(njc))
+pjc<-prop.table(njc)
+entropy<--sum(pjc*log(pjc))
+entropy
+mean(Price)
+n<-length(Price)
+emp.var<-1/n*sum((Price-mean(Price))^2)
+emp.var
+z<-median(Price)
+mld<-1/n*sum(abs((Price-z)^2))
+mld
+mld<-1/200*sum(abs((Price-z)^2))
+mld
+n
+mld<-1/200*sum(abs((Price-z)))
+mld
+#2.1
+data<-matrix(c(58,64,52,242,214,166,26,17,161),nrow = 3,byrow = T)
+data
+chisq<-chisq.test(data)$statistic
+chisq<-chisq.test(data)$statistic
+K <- sqrt ( chisq /( sum (data) + chisq ))
+M <- min ( dim (data ))
+K_max <- sqrt ((M -1) /M)
+K_star <- K/ K_max
+K_star
+#2.2
+points<-c(47,120,105,112,109,81,72)
+#2.2
+time<-c(47,120,105,112,109,81,72)
+points<-c(150,219,183,146,168,187,177)
+n<-length(time)
+cov<-1/n*sum((time-mean(time))*(points-mean(points)))
+cov
+cor(time,points)
+0.1271^(1/2)
+1-(6*116891)/((100)*(100^2-1))
+load("C:/Users/sanaa/Downloads/Pillar_03_QP_06_00_20151129046.RData")
+#2.3
+RData
+addmargins(RData)
+222-(9+56+83+48)
+26/1200
+RData[3,4]=26
+RData
+addmargins(RData)
+(222*248)/(1200)
+55/238
+F_j_k <- t( apply ( apply (RData , 2, cumsum ), 1, cumsum ))
+F_j_k
+F_j_k/1200
+load("C:/Users/sanaa/Downloads/Pillar_04_QP_01_00_20151129012.RData")
+#2.4
+attach(RData)
+head(RData)
+cor(TotalJumpingDistance,Score)
+reg<-lm(Score~TotalJumpingDistance)
+summary(reg)
+sum(residuals(reg)^2)
+x<-204
+x<-204
+b<--66.1343
+a<-1.3116
+y<-a*x+b
+y
+load("C:/Users/sanaa/Downloads/Pillar_08_QP_01_00_20160115038.RData")
+#7.1
+attach(RData)
+head(RData)
+Ng<-334
+Nus<-232
+n<-60
+var.total<-Ng^2/n*var(turnover.Germany)
+var.total
+mu<--2219.04
+test<-t.test(turnover.USA,turnover.Germany,mu,conf.level = .95,alternative = "less")
+abs(test$statistic)
+k<-test$statistic
+((mean(turnover.Germany)-mean(turnover.USA)-2219.04 ))/k)^2
+(((mean(turnover.Germany)-mean(turnover.USA)-2219.04 ))/k)^2
+((mean(turnover.Germany)-mean(turnover.USA)-2219.04 )/k)^2
+load("C:/Users/sanaa/Downloads/Pillar_08_QP_03_00_20160115003.RData")
+#7.2
+attach(RData)
+head(RData)
+N<-1352
+n<-93
+var.sm<-1/n*var(weight)*(N-n)/(N-1)
+var.sm
+(n-1)/185.613482*var(weight)
+critical<-qchisq(p=.01,df=n-1)
+critical
+alpha<-0.01
+data<-table(color)
+n<-length(color)
+p<-rep(1/4,4)
+chisq.test(data,p,correct = F,rescale.p = T)
+chisq.test(data,p=p,correct = F,rescale.p = T)
+#6.3
+u<-c(6/2,9/2,-4/2,3/2)
+sum(u)
+sum(u^2)
+sum((rep(1/6,6))^2)
+#6.2
+N<-3400
+n<-80
+smx<-3214583/n
+smy<-4008876/n
+tot.smy<-smy*N
+tot.smy
+var.smy<-1/n*323267782*1/(n-1)
+var.smy
+alpha<-0.01
+c.lower.y<-smy-qnorm(p=1-(alpha/2),mean = 0,sd=1)*sqrt(var.smy)
+c.lower.y
+delta<--9000
+var.smx<-301865768*1/n*1/(n-1)
+var.smy<-1/n*323267782*1/(n-1)
+alpha<-0.01
+c.lower.y<-smy-qnorm(p=1-(alpha/2),mean = 0,sd=1)*sqrt(var.smy)
+delta<--9000
+(smx-smy-delta)/sqrt(var.smx+var.smy)
+#6.1
+N<-1300
+n<-78
+sm<-23218*1/n
+sm
+var<-1/(n-1)*1417733.33
+var.po.tot<-N^2/n*var*(N-n)/(N-1)
+var.po.tot
+pop.tot<-N*sm
+var<-1/(n-1)*1417733.33
+var.po.tot<-N^2/n*var*(N-n)/(N-1)
+alpha<-0.05
+c.lower.pop.tot<-pop.tot-qnorm(p=1-(alpha/2),mean = 0,sd=1)*sqrt(var.po.tot)
+c.lower.pop.tot
+alpha <- 0.01
+Quantile <- qnorm (p = 1 - alpha / 2)
+sigma <- sqrt(237.2)
+d <- 4
+n_min <- ceiling ((2 * Quantile * sigma / d )^2)
+n_min
+#5.1
+u<-c(1/10,1/10,-3)
+sum(u)
+sum(u^2)
+sum((rep(1/6,6))^2)
+#5.2
+(11-50+6*21-2)
+(2*10*49)/(15*25)
+qchisq(.01,5)
+1+25*49+36*4
+var<-1+25*49+36*4
+#5.2
+(11-50+6*21-2)
+#5.2
+mu<-(11-50+6*21-2)
+qnorm(.05,mu,sqrt(var))
+load("C:/Users/sanaa/Downloads/Pillar_04_QP_02_00_20151129034.RData")
+#3.1
+attach(RData)
+head(RData)
+ytk<-ts(BIP_NO,start = c(2000,1),frequency = 4)
+ytrend<-decompose(ytk,type = "additive")$trend
+ytrend
+ynorm<-decompose(ytk,type = "additive")$figure
+ynorm
+zt<-ytk-ynorm
+error<-zt-69.7406
+error
+t<-1:length(zt)
+reg<-lm(zt~t)
+summary(reg)
+b<-38.99284
+a<-1.02159
+x<-52+3
+y<-a*x+b
+y+ynorm[3]
+ytk
+(67.3402/55.7296-1)*100
+6/50
+(.8*6+.2*44)/50
+(0.8*6)/(.8*6+.2*44)
+40/(8*15*12)
+1/6
+(40+120+260+8)/(8*15*12)
+(13*2*10+6*2*2)/(8*15*12)
+117/400
+32/83
+load("C:/Users/sanaa/Downloads/Pillar_04_QP_02_00_20151129006.RData")
+#3.1
+attach(RData)
+head(RData)
+ytk<-ts(BIP_EE,start = c(2000,1),frequency = 4)
+ytrend<-decompose(ytk,type="additive")$trend
+ynorm<-decompose(ytk,type = "additive")$figure
+ynorm
+round(ynorm,2)
+round(ynorm,4)
+#4.1
+(7*7*2)/(8*15*12)
+7/8
+(7*7*2+7*7*10+7*8*2+7*2)/(8*15*12)
+(7*8*2+70)/(8*15*12)
+118/400
+49/(49+33)
+1/6
+11/36
+7/12
+20/6
+#4.4
+x<-c(5,7,10)
+y<-c(3,4,10)
+#4.4
+data<-matrix(0.19,0.12,0.03,0.08,0.22,0.03,0.02,0.03,0.28)
+#4.4
+data<-matrix(c(0.19,0.12,0.03,0.08,0.22,0.03,0.02,0.03,0.28),nrow = 3,byrow = T)
+x<-c(5,7,10)
+y<-c(3,4,10)
+fx<-colSums(data)
+fy<-rowSums(data)
+ey<-weighted.mean(x=y,w=fy)
+ey
+ex<-weighted.mean(x=x.w=fx)
+var<-sum(fx*(x-ex)^2)
+ey<-weighted.mean(x=y,w=fy)
+ex<-weighted.mean(x=x.w=fx)
+var<-sum(fx*(x-ex)^2)
+ex<-weighted.mean(x=x,w=fx)
+var<-sum(fx*(x-ex)^2)
+var
+ex
+(3*.19+4*0.08+.2)/(.19+.08+.02)
+49*9.53
+125/216
+(75+60+36)/(216)
+7/13
+load("C:/Users/sanaa/Downloads/Pillar_01_QP_01_00_20151130039.RData")
+attach(RData)
+head(RData)
+quant<-quantile(Price,probs = seq(0,1,0.25),na.rm = F,type = 5)
+IQR<-as.numeric(quant[4]-quant[2])
+IQR
+load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+library(readr)
+publications <- read_csv("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+View(publications)
+head(RData)
+load(C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.RData)
+load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.RData")
+load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications")
+load(C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications)
+load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications<-read.csv(publications)
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv(publications)
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv(´publications.csv´)
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv('publications.csv')
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv('publications')
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv('publications.csv')
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv('publications.csv')
+library(readr)
+publications <- read_csv("C:/Users/sanaa/OneDrive/Desktop/Big Data Analytics/Assignment1/publications.csv")
+View(publications)
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<-read.csv('publications.csv')
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<- read.csv(file="C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv", header=TRUE, sep=",")
+#load("C:/Users/sanaa/OneDrive/Desktop/BDA/Assignment1/publications.csv")
+publications_data<- read.csv(file="/home/freitz/work/BDA/Assignment1/publications.csv", header=TRUE, sep=",")
+print(getwd())
+setDT(df)[ , .SD[which.max(df$price)], by = date]
+install.packages("tidyquant")
+library(tidyquant)
+library(quantmod)
+library(tseries)
+library(PerformanceAnalytics)
+library(ggplot2); theme_set(theme_bw()) # set theme for ggplot
+library(urca)
+library(tidyverse) # FYI: the core of "tidyverse" also includes "tibble"
+#vignette("tibble") # enjoy the summary about modern data.frames
+library(tsibble)
+install.packages("data.table")                  # Install data.table package
+library("data.table")
+data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+library(readxl)
+Assignment1_temporary_duplicate <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+View(Assignment1_temporary_duplicate)
+data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+head(data)
+attach(data)
+data1 <- subset(data, select = c(day,USD..PM.,USD..AM.)) # select the subset of USD data
+data2 <- na.omit(data1) # Remove NA's
+data2
+df <- data.frame(
+day = as.Date(day),
+price = as.numeric(USD..AM.),
+return = c(NA, 100 * diff(USD..AM.)/
+USD..AM.[-length(USD..AM.)]))
+head(df)
+#dates when both variables have had the highest and the lowest values.
+df %>% group_by(day) %>% top_n(1,price)
+setDT(df)[ , .SD[which.max(df$price)], by = date]
+df2 <- data.frame(
+day = as.Date(day),
+price = (as.numeric(USD..AM.)),
+log_return = diff(log(USD..AM.), lag = 5))
+df2 <- data.frame(
+day = as.Date(day),
+price = (USD..AM.),
+log_return = diff(log(USD..AM.), lag = 5))
+df2 <- data.frame(
+price = (as.numeric(USD..AM.)),
+log_return = diff(log(USD..AM.), lag = 5))
+df2 <- data.frame(
+day = as.Date(day),
+price = (as.numeric(USD..AM.))
+df2 <- data.frame(
+day = as.Date(day),
+price = (as.numeric(USD..AM.)))
+df2 <- data.frame(
+day = as.Date(day),
+price = (as.numeric(USD..AM.))
+)
+df2 <- data.frame(
+day = as.Date(day),
+price = (as.numeric(USD..AM.)),
+log_return =(NA;(diff(log(USD..AM.), lag = 5)))
+)
+if (!("rstudioapi" %in% installed.packages())) {install.packages("rstudioapi")}
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))# set the working directory to the current R Script location
+y = function(){dev.new();x=par(no.readonly=T); dev.off(); x} #'
+par(y()); options(scipen=0); dev.off(); rm(list=ls())
+# Packages -------------------------------------------------------------------------------------
+install.packages("tidyquant")
+library(tidyquant)
+library(quantmod)
+library(tseries)
+library(PerformanceAnalytics)
+library(ggplot2); theme_set(theme_bw()) # set theme for ggplot
+library(urca)
+library(tidyverse) # FYI: the core of "tidyverse" also includes "tibble"
+#vignette("tibble") # enjoy the summary about modern data.frames
+library(tsibble)
+install.packages("data.table")                  # Install data.table package
+library("data.table")
+data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+head(data)
+head(data)
+data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+library(readxl)
+Assignment1_temporary_duplicate <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+View(Assignment1_temporary_duplicate)
+data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+head(data)
+attach(data)
+df <- data.frame(
+day = as.Date(day),
+price = as.numeric(USD..AM.),
+return = c(NA, 100 * diff(USD..AM.)/
+USD..AM.[-length(USD..AM.)]))
+head(df)
+plot <- ggplot(df, aes(x=day, y=price)) +
+geom_line(color="steelblue") +
+xlab("") +
+ylab("") +
+theme_bw() +
+scale_x_date(date_breaks = "4 year", date_labels = "%Y")
+plot # levels
+plot <- ggplot(df, aes(x=day, y=return)) +
+geom_line(color="steelblue") +
+xlab("") +
+ylab("") +
+theme_bw() +
+scale_x_date(date_breaks = "4 year", date_labels = "%Y")
+plot
+#Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly")
+data <- Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly", type = "xts")
+install.packages('quandl')
+library(quandl)
+install.packages('Quandl')
+install.packages("Quandl")
+library(Quandl)
+#data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+#head(data)
+#attach(data)
+#Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly")
+data <- Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly", type = "xts")
+#data <- read_excel("C:/Users/sanaa/OneDrive/Desktop/AFE/Assignment 1/Assignment1_temporary_duplicate.xlsx")
+#head(data)
+#attach(data)
+#Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly")
+data1 <- Quandl("LBMA/GOLD", api_key="yq8Wbg_Vud6RFCq_cZUx", collapse="weekly", type = "xts")
+df <- data.frame(
+df <- data.frame(
+View(df)
+df <- data.frame(
+day = as.Date(rownames(data.frame(data1))),
+price = as.numeric(data1$"USD (AM)"),
+log_return = as.numeric(100*(diff(log(data1$"USD (AM)"), lag = 5)))
+df_2 <- data.frame(
+View(data)
+#Declare the three macro-variables as plain time series objects. Visualize the resulting
+#data set. What can be inferred in terms of stationarity?
+?mutate
+Kinder = data.frame(Alter = c(6, 7, 6, 7, 8, 7, 8),
+Geschlecht = c(“m”, “m”,“w”, “w”, “m”, “w”, “w”),
+Taschengeld = c(12, 18, 14, 20, 26, 20, 20),
+Fahrrad = c(“ja”, “ja”, “nein”, “ja”, “ja”, “ja”, “nein”))
+Kinder = data.frame(Alter = c(6, 7, 6, 7, 8, 7, 8),
+Geschlecht = c(“m”, “m”,“w”, “w”, “m”, “w”, “w”),
+Taschengeld = c(12, 18, 14, 20, 26, 20, 20),
+Fahrrad = c(“ja”,“ja”,“nein”,“ja”,“ja”,“ja”,“nein”))
+Kinder = data.frame(Alter = c(6, 7, 6, 7, 8, 7, 8),
+Geschlecht = c(“m”,“m”,“w”,“w”,“m”,“w”,“w”),
+Taschengeld = c(12, 18, 14, 20, 26, 20, 20),
+Fahrrad = c(“ja”,“ja”,“nein”,“ja”,“ja”,“ja”,“nein”))
+A= data.frame(Alter = c(6, 7, 6, 7, 8, 7, 8),Taschengeld = c(12, 18, 14, 20, 26, 20, 20))
+A
+B=A[A$Alter<= 7,c(“Alter”,“Taschengeld”)]
+B=A[A$Alter<= 7,c('Alter','Taschengeld')]
+B
+10^(1/2)
